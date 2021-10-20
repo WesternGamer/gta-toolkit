@@ -1,1 +1,1 @@
-THIS PROJECT IS DISCONTINUED.
+The original project was discontinued.
