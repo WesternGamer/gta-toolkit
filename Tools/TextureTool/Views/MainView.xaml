@@ -1,7 +1,7 @@
 ﻿<Window x:Class="TextureTool.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="{Binding Title}" Height="420" Width="837">
+        Title="{Binding Title}" Height="720" Width="1280" Background="Black" BorderBrush="Black">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -13,18 +13,18 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-            <MenuItem Header="File">
-                <MenuItem Header="New" Command="{Binding NewCommand}" />
-                <MenuItem Header="Save" Command="{Binding SaveAsCommand}" />
-                <Separator />
-                <MenuItem Header="Exit" Command="{Binding ExitCommand}" InputGestureText="Alt+F4" />
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Foreground="#FF212121" Background="#3F3F46">
+            <MenuItem Header="File" Foreground="White">
+                <MenuItem Header="New" Command="{Binding NewCommand}" Background="#1B1B1C" BorderBrush="#FF3F3F46" />
+                <MenuItem Header="Save" Command="{Binding SaveAsCommand}" Background="#1B1B1C" BorderBrush="#FF3F3F46" />
+                <Separator Background="#FF3F3F46" BorderBrush="#FF3F3F46" Foreground="#FF3F3F46" />
+                <MenuItem Header="Exit" Command="{Binding ExitCommand}" InputGestureText="Alt+F4" Background="#1B1B1C" BorderBrush="#FF3F3F46" />
             </MenuItem>
-            <MenuItem Header="Edit">
-                <MenuItem Header="Import" Command="{Binding ImportCommand}" />
-                <MenuItem Header="Delete" Command="{Binding DeleteCommand}" />
+            <MenuItem Header="Edit" Foreground="White">
+                <MenuItem Header="Import" Command="{Binding ImportCommand}" Background="#1B1B1C" BorderBrush="#FF3F3F46"/>
+                <MenuItem Header="Delete" Command="{Binding DeleteCommand}" Background="#1B1B1C" BorderBrush="#FF3F3F46"/>
             </MenuItem>
-			<MenuItem Header="About" Command="{Binding AboutCommand}" />
+			<MenuItem Header="About" Command="{Binding AboutCommand}" Foreground="White" />
         </Menu>
 
         <ListView Grid.Row="1" Grid.Column="0" MinHeight="100"
@@ -48,7 +48,7 @@
         </ListView>
 
         <ListView Grid.Row="2" Grid.Column="0"
-                  ItemsSource="{Binding Textures}" SelectedItem="{Binding SelectedTexture}">
+                  ItemsSource="{Binding Textures}" SelectedItem="{Binding SelectedTexture}" Background="#FF252526" BorderBrush="#72555555" Foreground="#FF252526">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="200" />
@@ -59,9 +59,9 @@
             </ListView.View>
         </ListView>
 
-        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Background="LightGray">
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Background="#FF252526">
             <Image Source="{Binding SelectedTexture.Image}" Margin="0,22,0,0" />
-            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Preview" VerticalAlignment="Top" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Preview" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
         </Grid>
        
     </Grid>

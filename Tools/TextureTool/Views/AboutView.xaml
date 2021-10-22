@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TextureTool.Views"
         mc:Ignorable="d"
-        Title="About" Height="300" Width="450" ResizeMode="NoResize" >
+        Title="About" Height="300" Width="450" ResizeMode="NoResize" Background="#FF212121" >
     <Grid>
-        <TextBlock x:Name="ProgramNameLabel" HorizontalAlignment="Center" Margin="0,35,0,0" TextWrapping="Wrap" Text="RDR2 Texture Toolkit" VerticalAlignment="Top" RenderTransformOrigin="-0.524,0.415" FontWeight="Bold" FontSize="36"/>
-        <TextBlock x:Name="OriginalProgrammerLabel" HorizontalAlignment="Center" Margin="0,105,0,0" TextWrapping="Wrap" Text="Original Programmer: " VerticalAlignment="Top" FontSize="16">
+        <TextBlock x:Name="ProgramNameLabel" HorizontalAlignment="Center" Margin="0,35,0,0" TextWrapping="Wrap" Text="RDR2 Texture Toolkit" VerticalAlignment="Top" RenderTransformOrigin="-0.524,0.415" FontWeight="Bold" FontSize="36" Foreground="White"/>
+        <TextBlock x:Name="OriginalProgrammerLabel" HorizontalAlignment="Center" Margin="0,105,0,0" TextWrapping="Wrap" Text="Original Programmer: " VerticalAlignment="Top" FontSize="16" Foreground="White">
             <Hyperlink NavigateUri="https://github.com/Neodymium146" RequestNavigate="Hyperlink_RequestNavigate">Neodymium146</Hyperlink>
         </TextBlock>
-        <TextBlock x:Name="ReprogrammedByLabel" HorizontalAlignment="Center" Margin="0,130,0,0" TextWrapping="Wrap" Text="Reprogrammed by: " VerticalAlignment="Top" FontSize="16">
+        <TextBlock x:Name="ReprogrammedByLabel" HorizontalAlignment="Center" Margin="0,130,0,0" TextWrapping="Wrap" Text="Reprogrammed by: " VerticalAlignment="Top" FontSize="16" Foreground="White">
             <Hyperlink NavigateUri="https://github.com/WesternGamer" RequestNavigate="Hyperlink_RequestNavigate">WesternGamer</Hyperlink>
         </TextBlock>
-        <TextBlock x:Name="OriginalSourceCodeLabel" HorizontalAlignment="Center" Margin="0,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16">
+        <TextBlock x:Name="OriginalSourceCodeLabel" HorizontalAlignment="Center" Margin="0,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Foreground="White">
             <Hyperlink NavigateUri="https://github.com/Neodymium146/gta-toolkit" RequestNavigate="Hyperlink_RequestNavigate">Original Source Code</Hyperlink>
         </TextBlock>
-        <TextBlock x:Name="NewSourceCodeLabel" HorizontalAlignment="Center" Margin="0,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16">
+        <TextBlock x:Name="NewSourceCodeLabel" HorizontalAlignment="Center" Margin="0,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Foreground="White">
             <Hyperlink NavigateUri="https://github.com/WesternGamer" RequestNavigate="Hyperlink_RequestNavigate">New Source Code</Hyperlink>
         </TextBlock>
-        <TextBlock x:Name="VersionLabel" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text=" Version: {0}.{1}.{2}.{3}" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="VersionLabel" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text=" Version: {0}.{1}.{2}.{3}" VerticalAlignment="Bottom" Foreground="White"/>
         <Image x:Name="WesternGamerLogoImage" HorizontalAlignment="Right" Margin="0,0,5,5" VerticalAlignment="Bottom" Width="50" Height="50" Source="WesternLogoBL.png"/>
     </Grid>
 </Window>
