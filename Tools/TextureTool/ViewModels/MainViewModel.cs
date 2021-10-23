@@ -42,13 +42,9 @@ namespace TextureTool.ViewModels
         private TextureViewModel selectedTexture;
 
         public ICommand NewCommand { get; private set; }
-        public ICommand LoadCommand { get; private set; }
-        public ICommand SaveCommand { get; private set; }
         public ICommand SaveAsCommand { get; private set; }
         public ICommand ExitCommand { get; private set; }
         public ICommand ImportCommand { get; private set; }
-        public ICommand ExportCommand { get; private set; }
-        public ICommand ExportAllCommand { get; private set; }
         public ICommand DeleteCommand { get; private set; }
         public ICommand AboutCommand { get; private set; }
                
@@ -138,16 +134,12 @@ namespace TextureTool.ViewModels
             model = new MainModel();
             //model.New();
 
-            Title = "Texture Toolkit";
+            Title = "RDR2 Texture Toolkit";
             
             NewCommand = new ActionCommand(New_Execute);
-            LoadCommand = new ActionCommand(Load_Execute);
-            SaveCommand = new ActionCommand(Save_Execute, Save_CanExecute);
-            SaveAsCommand = new ActionCommand(SaveAs_Execute, SaveAs_CanExecute);
+            SaveAsCommand = new ActionCommand(Save_Execute, Save_CanExecute);
             ExitCommand = new ActionCommand(Exit_Execute);
             ImportCommand = new ActionCommand(Import_Execute, Import_CanExecute);
-            ExportCommand = new ActionCommand(Export_Execute, Export_CanExecute);
-            ExportAllCommand = new ActionCommand(ExportAll_Execute, ExportAll_CanExecute);
             DeleteCommand = new ActionCommand(Delete_Execute, Delete_CanExecute);
             AboutCommand = new ActionCommand(About_Execute);
         }
@@ -196,48 +188,13 @@ namespace TextureTool.ViewModels
         public void New_Execute(object parameter)
         {
             model.New();
-            Title = "Texture Toolkit";
+            Title = "RDR2 Texture Toolkit";
             TextureFilesVisibility = false;
 
             BuildTextureDictionaryList();
         }
 
-        public void Load_Execute(object parameter)
-        {
-            var openDialog = new OpenFileDialog();
-            openDialog.FileName = "*.*";
-            openDialog.Filter = "All files|*.*|Texture dictionaries (.ytd)|*.ytd|Drawable (.ydr)|*.ydr|Drawable dictionaries (.ydd)|*.ydd|Fragments (.yft)|*.yft|Particles (.ypt)|*.ypt";
-            if (openDialog.ShowDialog() == DialogResult.OK)
-            {
-                model.Load(openDialog.FileName);
-                Title = openDialog.FileName + " - Texture Toolkit";
-
-                // visible:
-                //  texture dictionary: no
-                //  drawable dictionay: yes
-                //  drawable: no
-                //  fragment: yes
-                //  particles: no
-                TextureFilesVisibility = model.FileType == FileType.DrawableDictionaryFile || model.FileType == FileType.FragmentFile;
-
-                BuildTextureDictionaryList();
-            }
-        }
-        
         public bool Save_CanExecute(object parameter)
-        {
-            if (model.FileType != FileType.None && !string.IsNullOrEmpty(model.FileName))
-                return true;
-            else
-                return false;
-        }
-        
-        public void Save_Execute(object parameter)
-        {
-            model.Save(model.FileName);
-        }
-
-        public bool SaveAs_CanExecute(object parameter)
         {
             if (model.FileType != FileType.None)
                 return true;
@@ -245,36 +202,43 @@ namespace TextureTool.ViewModels
                 return false;
         }
         
-        public void SaveAs_Execute(object parameter)
-        {
-            var saveDialog = new SaveFileDialog();
-            saveDialog.FileName = model.FileName;
-            saveDialog.Filter = "Texture dictionaries|*.ytd";
-            if (saveDialog.ShowDialog() == DialogResult.OK)
+        public void Save_Execute(object parameter)
+        { 
+            if (textures.Any())
             {
-                model.Save(saveDialog.FileName);
-                Title = saveDialog.FileName + " - Texture Toolkit";
+                var saveDialog = new SaveFileDialog();
+                saveDialog.FileName = model.FileName;
+                saveDialog.Filter = "Texture dictionaries|*.ytd";
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    model.Save(saveDialog.FileName);
+                    Title = saveDialog.FileName + " - RDR2 Texture Toolkit";
+                }
+                try
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                    startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                    startInfo.FileName = "Converter\\CitiCon.com";
+                    startInfo.Arguments = "formats:convert " + saveDialog.FileName;
+                    process.StartInfo = startInfo;
+                    process.Start();
+                }
+                catch (Exception e)
+                {
+                    if (e is System.ComponentModel.Win32Exception)
+                    {
+                        MessageBox.Show("Unable to convert GTA5 texture file to RDR2 texture file because CitiCon.com executable is missing.", "An Error has Occurred", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show(e.Message, "An Error has Occurred.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            try 
-            { 
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-                startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                startInfo.FileName = "Converter\\CitiCon.com";
-                startInfo.Arguments = "formats:convert " + saveDialog.FileName;
-                process.StartInfo = startInfo;
-                process.Start();
-            }
-            catch (Exception e)
+            else
             {
-                if (e is System.ComponentModel.Win32Exception)
-                {
-                    MessageBox.Show("Unable to convert GTA5 texture file to RDR2 texture file because CitiCon.com executable is missing.", "An Error has Occurred", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show(e.Message, "An Error has Occurred.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("There are no files to save. Please add a file(s) to save.", "No files to save.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -304,43 +268,6 @@ namespace TextureTool.ViewModels
             }
 
             BuildTextureList();
-        }
-
-        public bool Export_CanExecute(object parameter)
-        {
-            if (SelectedTexture != null)
-                return true;
-            else
-                return false;
-        }
-
-        public void Export_Execute(object parameter)
-        {
-            var exportDialog = new SaveFileDialog();
-            exportDialog.FileName = SelectedTexture.Name + ".dds";
-            exportDialog.Filter = "DDS files (.dds)|*.dds";
-            if (exportDialog.ShowDialog() == DialogResult.OK)
-            {
-                SelectedTexture.GetModel().Export(exportDialog.FileName);
-            }
-        }
-        
-        public bool ExportAll_CanExecute(object parameter)
-        {
-            if (SelectedTextureDictionary != null)
-                return true;
-            else
-                return false;
-        }
-
-        public void ExportAll_Execute(object parameter)
-        {
-            var exportDialog = new FolderBrowserDialog();
-            if (exportDialog.ShowDialog() == DialogResult.OK)
-            {
-                foreach (var texture in Textures)
-                    texture.GetModel().Export(exportDialog.SelectedPath + "\\" + texture.Name + ".dds");
-            }
         }
         
         public bool Delete_CanExecute(object parameter)
