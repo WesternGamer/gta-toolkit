@@ -1,10 +1,12 @@
+# RDR2 Texture Toolkit
+
 A tool forked off of Neodymium's GTA5 Texture Toolkit, that allows you to create RDR2 texture files without requiring to buy GTA5. 
 
-##How it works:
+## How it works:
 
 This is basically Neodymium's GTA5 Texture toolkit but only with the components to create a texture file (.ytd). This means that you can't export the files from ymt files but you can do that with OpenIV. You can't also load ymt files. This program also uses the RedM ymt file converter from the RedM client to convert the files to the ymt format that RDR2 recognizes.
 
-##How to Use: 
+## How to Use: 
 
 NOTE: Better instructions will be coming later.
 
@@ -15,7 +17,7 @@ Two ymt files will be created. The ymt file that has "_nya" in it, is the file t
 The ymt file that has "_nya" in it, can now be renamed to whatever you want and can now be used in Lenny's Mod Loader.
 
 
-##Credits to:
+## Credits to:
 The CitizenFX Collective for the texture converter. The texture converter are (c) 2017-2020 the CitizenFX Collective.
 
 Neodymium for his code on GitHub and the original GTA5 ToolKit
