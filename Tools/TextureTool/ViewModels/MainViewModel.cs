@@ -244,7 +244,11 @@ namespace TextureTool.ViewModels
 
         public void Exit_Execute(object parameter)
         {
-            System.Windows.Application.Current.Shutdown();
+            DialogResult Result = MessageBox.Show("Are you sure that you want to exit?", "Please Confirm.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (Result == DialogResult.Yes)
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
         }
         
         public bool Import_CanExecute(object parameter)
