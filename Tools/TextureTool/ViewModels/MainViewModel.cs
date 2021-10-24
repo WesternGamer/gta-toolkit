@@ -216,11 +216,21 @@ namespace TextureTool.ViewModels
                 }
                 try
                 {
+                    string execPath = AppDomain.CurrentDomain.BaseDirectory;
                     System.Diagnostics.Process process = new System.Diagnostics.Process();
                     System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+#if DEBUG
+                    startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+#else
                     startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                    startInfo.FileName = "Converter\\CitiCon.com";
-                    startInfo.Arguments = "formats:convert " + saveDialog.FileName;
+#endif
+                    startInfo.FileName = "cmd.exe";
+#if DEBUG
+                    startInfo.Arguments = @"/C Xcopy /E /I /Y " + execPath + @"Converter\ %TEMP% & %TEMP%\CitiCon.com formats:convert " + saveDialog.FileName + @"& pause";
+#else
+                    startInfo.Arguments = "/C Xcopy /E /I /Y \"" + execPath + "Converter\\\" %TEMP% & %TEMP%\\CitiCon.com formats:convert " + saveDialog.FileName;
+#endif
+                    startInfo.Verb = "runas";
                     process.StartInfo = startInfo;
                     process.Start();
                 }
@@ -228,7 +238,7 @@ namespace TextureTool.ViewModels
                 {
                     if (e is System.ComponentModel.Win32Exception)
                     {
-                        MessageBox.Show("Unable to convert GTA5 texture file to RDR2 texture file because CitiCon.com executable is missing.", "An Error has Occurred", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Unable to convert GTA5 texture file to RDR2 texture file because CitiCon.com executable is missing or the program does not have permission to access CitiCon.com.", "An Error has Occurred", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
