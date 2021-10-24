@@ -20,8 +20,11 @@
     THE SOFTWARE.
 */
 
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Forms;
 using TextureTool.ViewModels;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace TextureTool.Views
 {
@@ -31,6 +34,15 @@ namespace TextureTool.Views
         {
             InitializeComponent();
             DataContext = new MainViewModel();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            DialogResult Result = MessageBox.Show("Are you sure that you want to exit?", "Please Confirm.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (Result != System.Windows.Forms.DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
