@@ -1,5 +1,7 @@
 # RDR2 Texture Toolkit
 
+NOTE: The texture converter by citizenfx was removed to comply with a DMCA takedown request. This means that any releases of this tool with the texture tool has been removed. A new release of this tool without the texture converter will be released. That version will require you to have RedM installed and will tell you where the texture tool is located. Sorry for the inconvenience.
+
 A tool forked off of Neodymium's GTA5 Texture Toolkit, that allows you to create RDR2 texture files without requiring to buy GTA5. 
 
 ## How it works:
