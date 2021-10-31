@@ -58,7 +58,72 @@ NOTE: This will not work if you are on a version of Windows 10 earlier than vers
 4. Click install. If it does not allow you to install, repeat step 2, but select Local Machine in the prompt. If all fails, use the portable version.
 ![alt text](https://i.imgur.com/t93e69A.png)
 
-## Credits to:
-The CitizenFX Collective for the texture converter. The texture converter are (c) 2017-2020 the CitizenFX Collective.
+5. Run the program.
 
-Neodymium for his code on GitHub and the original GTA5 ToolKit.
+6. Follow setup instructions.
+
+7. Done!
+
+## How to update the tool:
+
+These instructions will tell you how to update the tool.
+
+1. Download the latest version of RDR2 Texture Toolkit then extract the files to a folder.
+
+2. Click on the .msixbundle file.
+
+3. Click update. If it does not allow you to update, click on the .cer file. Then follow the instructions on screen. This is due to the .cer file being expired.
+
+4. Done!
+
+## Mirrors:
+
+If you cannot download the tool or need the portable version, here is the list of mirrors available
+
+RDR2 Mods (COMING SOON)
+
+Nexus Mods (COMING SOON)
+
+## How to Report a bug/issue:
+
+If you find a bug/issue, please report it [Here](https://github.com/WesternGamer/gta-toolkit/issues).
+
+## Credits to:
+
+Neodymium for his code on [GitHub](https://github.com/Neodymium146/gta-toolkit) and the original [GTA5 Texture ToolKit](https://www.gta5-mods.com/tools/texture-toolkit).
+
+CitizenFX for the conversion tool or this program would not exist. Converter is NOT included with the tool.
+
+## Requirements:
+
+[RedM by CitizenFX](https://redm.net/): Required to for this tool to work.
+
+## Permissions and credits:
+
+### Credits and distribution permission
+
+#### Other user's assets
+  All the assets in this file belong to the author, or are from free-to-use modder's resources.
+
+
+#### Upload permission
+  You can upload this tool to other sites but you must credit me as the creator of the file if the mod is has no updates after 6 months since the last update.
+
+
+#### Modification permission
+  You are allowed to modify my tool and release bug fixes or improve on the features so long as you credit me as the original creator if development is officially discontinued.
+
+
+#### Conversion permission
+  You can convert this file to work with other RAGE engine games as long as you credit me as the creator of the tool.
+
+
+#### Asset use permission
+  You are allowed to use the assets in this tool without permission as long as you credit me if the mod is has no updates after 6 months since the last update.
+
+
+#### Asset use permission in mods/files that are being sold
+  You are not allowed to use assets from this file in any mods/files that are being sold, for money, on Steam Workshop or other platforms. You will get reported if you do so.
+
+## License: 
+
