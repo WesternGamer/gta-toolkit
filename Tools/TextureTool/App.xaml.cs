@@ -20,11 +20,28 @@
     THE SOFTWARE.
 */
 
+using RDR2TextureTool.Views;
 using System.Windows;
+using TextureTool.Utill.Config;
+using TextureTool.Views;
 
 namespace TextureTool
 {
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            if (XMLReader.IsFirstStartUp)
+            {
+                FirstStartupView firstStartupView = new FirstStartupView();
+                firstStartupView.Show();
+            }
+            else
+            {
+                MainView mainView = new MainView();
+                mainView.Show();
+            }
+        }
     }
 }

@@ -187,11 +187,26 @@ namespace TextureTool.ViewModels
 
         public void New_Execute(object parameter)
         {
-            model.New();
-            Title = "RDR2 Texture Toolkit";
-            TextureFilesVisibility = false;
+            if (textures == null)
+            {
+                model.New();
+                Title = "RDR2 Texture Toolkit";
+                TextureFilesVisibility = false;
 
-            BuildTextureDictionaryList();
+                BuildTextureDictionaryList();
+            }
+            else
+            {
+                DialogResult Result = MessageBox.Show("Are you sure that you want to create a new Ytd file?", "Please Confirm.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (Result == DialogResult.Yes)
+                {
+                    model.New();
+                    Title = "RDR2 Texture Toolkit";
+                    TextureFilesVisibility = false;
+
+                    BuildTextureDictionaryList();
+                }
+            }
         }
 
         public bool Save_CanExecute(object parameter)
@@ -213,38 +228,32 @@ namespace TextureTool.ViewModels
                 {
                     model.Save(saveDialog.FileName);
                     Title = saveDialog.FileName + " - RDR2 Texture Toolkit";
-                }
-                try
-                {
-                    string execPath = AppDomain.CurrentDomain.BaseDirectory;
-                    System.Diagnostics.Process process = new System.Diagnostics.Process();
-                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-#if DEBUG
-                    startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
-#else
-                    startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-#endif
-                    startInfo.FileName = "cmd.exe";
-#if DEBUG
-                    startInfo.Arguments = @"/C Xcopy /E /I /Y " + execPath + @"Converter\ %TEMP% & %TEMP%\CitiCon.com formats:convert " + saveDialog.FileName + @"& pause";
-#else
-                    startInfo.Arguments = "/C Xcopy /E /I /Y \"" + execPath + "Converter\\\" %TEMP% & %TEMP%\\CitiCon.com formats:convert " + saveDialog.FileName;
-#endif
-                    startInfo.Verb = "runas";
-                    process.StartInfo = startInfo;
-                    process.Start();
-                }
-                catch (Exception e)
-                {
-                    if (e is System.ComponentModel.Win32Exception)
+                    try
                     {
-                        MessageBox.Show("Unable to convert GTA5 texture file to RDR2 texture file because CitiCon.com executable is missing or the program does not have permission to access CitiCon.com.", "An Error has Occurred", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        const string quote = "\"";
+                        string execPath = AppDomain.CurrentDomain.BaseDirectory;
+                        System.Diagnostics.Process process = new System.Diagnostics.Process();
+                        System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                        startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                        startInfo.FileName = "cmd.exe";
+                        startInfo.Arguments = "/C cd " + quote + Utill.Config.XMLReader.ConverterDirectory + @"\RedM.app" + quote + " & CitiCon.com formats:convert " + quote + saveDialog.FileName + quote;
+                        startInfo.Verb = "runas";
+                        process.StartInfo = startInfo;
+                        process.Start();
                     }
-                    else
+                    catch (Exception e)
                     {
-                        MessageBox.Show(e.Message, "An Error has Occurred.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (e is System.ComponentModel.Win32Exception)
+                        {
+                            MessageBox.Show("Unable to convert GTA5 texture file to RDR2 texture file because CitiCon.com executable is missing or the program does not have permission to access CitiCon.com.", "An Error has Occurred", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show(e.Message, "An Error has Occurred.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
+                
             }
             else
             {

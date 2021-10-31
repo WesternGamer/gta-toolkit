@@ -19,31 +19,21 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
+using System;
+using System.IO;
 
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Forms;
-using TextureTool.ViewModels;
-using MessageBox = System.Windows.Forms.MessageBox;
-
-namespace TextureTool.Views
+namespace TextureTool.Utill
 {
-    public partial class MainView : Window
+    internal class FileSystem
     {
-        public MainView()
-        {
-            InitializeComponent();
-            DataContext = new MainViewModel();
-        }
+        public static string RootFolderPath;
+        public static readonly string UserDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        protected override void OnClosing(CancelEventArgs e)
+        public static void Init()
         {
-            DialogResult Result = MessageBox.Show("Are you sure that you want to exit?", "Please Confirm.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (Result != System.Windows.Forms.DialogResult.Yes)
-            {
-                e.Cancel = true;
-            }
+            RootFolderPath = Path.Combine(UserDataPath, "RDR2TextureToolKit");
+            if (!Directory.Exists(RootFolderPath))
+                Directory.CreateDirectory(RootFolderPath);
         }
-
-    }
+    }   
 }
