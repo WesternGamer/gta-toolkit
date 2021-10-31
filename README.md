@@ -1,12 +1,10 @@
 # RDR2 Texture Toolkit
 
-NOTE: The texture converter by citizenfx was removed to comply with a DMCA takedown request. This means that any releases of this tool with the texture tool has been removed. A new release of this tool without the texture converter will be released. That version will require you to have RedM installed and will tell you where the texture tool is located. Sorry for the inconvenience.
-
 A tool forked off of Neodymium's GTA5 Texture Toolkit, that allows you to create RDR2 texture files without requiring to buy GTA5. 
 
 ## How it works:
 
-This is basically Neodymium's GTA5 Texture toolkit but only with the components to create a texture file (.ytd). This means that you can't export the files from ymt files but you can do that with OpenIV. You can't also load ymt files. This program also uses the RedM ymt file converter from the RedM client to convert the files to the ymt format that RDR2 recognizes.
+his is basically Neodymium's GTA5 Texture toolkit but only with the components to create a texture file (.ytd). This means that you can't export the files from "ytd" files but you can do that with OpenIV. You can't also load "ytd" files. This program also uses the RedM "ytd" file converter from the RedM client to convert the files to the "ytd" format that RDR2 recognizes. This is NOT included with the program. There are existing ways to make RDR2 Ytd files but this tool makes it more easy and not as tedious.
 
 ## How to Use: 
 
@@ -24,6 +22,41 @@ NOTE: The program only accepts DDS files explicitly. This means if the file ends
 
 5. The ymt file that has "_nya" in it, can now be renamed to whatever you want and can now be used in Lenny's Mod Loader.
 
+## How to install:
+
+Before installing, please read the Requirements section to see what you will need before installation.
+
+NOTE: If the files are not downloadable e.g. false positive on virus scan, then download from GitHub mirror under the mirrors section.
+
+## Portable install:
+
+
+NOTE: Only downloadable on GitHub because virus scans always get a false positive on this tool. Go to mirrors and click on GitHub to go to the download page on GitHub.
+
+This is for short term use only.
+
+1. Download RDR2 Texture Toolkit Portable then extract the files to a folder.
+
+2. Run the exe file.
+
+3. Follow setup instructions.
+
+4. Done!
+
+## Package install:
+
+This is for long term use and will actually install the program.
+
+NOTE: This will not work if you are on a version of Windows 10 earlier than version 2004. 
+
+1. Download RDR2 Texture Toolkit then extract the files to a folder.
+
+2. Click on the .cer file. Then follow the instructions on screen. This is to allow you to install the program. 
+
+3. Click on the .msixbundle file. 
+
+4. Click install. If it does not allow you to install, repeat step 2, but select Local Machine in the prompt. If all fails, use the portable version.
+![alt text](https://i.imgur.com/t93e69A.png)
 
 ## Credits to:
 The CitizenFX Collective for the texture converter. The texture converter are (c) 2017-2020 the CitizenFX Collective.
