@@ -56,6 +56,7 @@ NOTE: This will not work if you are on a version of Windows 10 earlier than vers
 3. Click on the .msixbundle file. 
 
 4. Click install. If it does not allow you to install, repeat step 2, but select Local Machine in the prompt. If all fails, use the portable version.
+
 ![alt text](https://i.imgur.com/t93e69A.png)
 
 5. Run the program.
