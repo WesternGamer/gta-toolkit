@@ -81,9 +81,9 @@ These instructions will tell you how to update the tool.
 
 If you cannot download the tool or need the portable version, here is the list of mirrors available
 
-RDR2 Mods (COMING SOON)
+[RDR2 Mods](https://www.rdr2mods.com/downloads/rdr2/tools/240-rdr2-texture-toolkit/)
 
-Nexus Mods (COMING SOON)
+[Nexus Mods](https://www.nexusmods.com/reddeadredemption2/mods/1089)
 
 ## How to Report a bug/issue:
 
