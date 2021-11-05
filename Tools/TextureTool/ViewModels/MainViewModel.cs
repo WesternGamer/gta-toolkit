@@ -20,6 +20,7 @@
     THE SOFTWARE.
 */
 
+using RDR2TextureTool.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,7 @@ namespace TextureTool.ViewModels
         public ICommand ExitCommand { get; private set; }
         public ICommand ImportCommand { get; private set; }
         public ICommand DeleteCommand { get; private set; }
+        public ICommand SettingsCommand { get; private set; }
         public ICommand AboutCommand { get; private set; }
                
         public string Title
@@ -141,8 +143,11 @@ namespace TextureTool.ViewModels
             ExitCommand = new ActionCommand(Exit_Execute);
             ImportCommand = new ActionCommand(Import_Execute, Import_CanExecute);
             DeleteCommand = new ActionCommand(Delete_Execute, Delete_CanExecute);
+            SettingsCommand = new ActionCommand(Settings_Execute);
             AboutCommand = new ActionCommand(About_Execute);
         }
+
+        
 
         public void BuildTextureDictionaryList()
         {
@@ -321,6 +326,15 @@ namespace TextureTool.ViewModels
             {
                 AboutView aboutWindow = new AboutView();
                 aboutWindow.Show();
+            }
+        }
+
+        private void Settings_Execute(object parameter)
+        {
+            if (!System.Windows.Application.Current.Windows.OfType<SettingsView>().Any())
+            {
+                SettingsView settingsView = new SettingsView();
+                settingsView.Show();
             }
         }
     }

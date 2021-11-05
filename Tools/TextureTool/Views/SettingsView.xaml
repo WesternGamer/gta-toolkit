@@ -1,0 +1,18 @@
+﻿<Window x:Class="RDR2TextureTool.Views.SettingsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RDR2TextureTool.Views"
+        mc:Ignorable="d"
+        Title="Settings" Height="375" Width="800" ResizeMode="NoResize">
+    <Grid Background="#FF252526">
+        <TextBlock HorizontalAlignment="Left" Margin="34,10,0,0" TextWrapping="Wrap" Text="Settings" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="47" Width="189" FontSize="36"/>
+        <Button x:Name="ApplyButton" Content="Apply" HorizontalAlignment="Left" Margin="596,300,0,0" VerticalAlignment="Top" Width="75" Click="ApplyClick" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="676,300,0,0" VerticalAlignment="Top" Width="75" Click="CancelClick" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
+        <TextBox x:Name="RedMInstallationFolderTextBox" HorizontalAlignment="Left" Height="23" Margin="179,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="541" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="RedM Installation Folder:" VerticalAlignment="Top" Margin="35,74,0,0" Foreground="White" Width="139" />
+        <Button Name="OpenFileExplorerButton" Content="..." HorizontalAlignment="Left" Margin="728,72,0,0" VerticalAlignment="Top" Width="23" Height="23" Click="OpenFileExplorer" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="516,300,0,0" VerticalAlignment="Top" Width="75" Click="OKClick" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
+    </Grid>
+</Window>

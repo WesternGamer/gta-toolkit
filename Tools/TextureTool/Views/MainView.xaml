@@ -24,7 +24,8 @@
                 <MenuItem Header="Import" Command="{Binding ImportCommand}" Background="#1B1B1C" BorderBrush="#FF3F3F46"/>
                 <MenuItem Header="Delete" Command="{Binding DeleteCommand}" Background="#1B1B1C" BorderBrush="#FF3F3F46"/>
             </MenuItem>
-			<MenuItem Header="About" Command="{Binding AboutCommand}" Foreground="White" />
+            <MenuItem Header="Settings" Command="{Binding SettingsCommand}" Foreground="White" />
+            <MenuItem Header="About" Command="{Binding AboutCommand}" Foreground="White" />
         </Menu>
 
         <ListView Grid.Row="1" Grid.Column="0" MinHeight="100"
