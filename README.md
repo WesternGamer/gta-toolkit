@@ -108,11 +108,11 @@ CitizenFX for the conversion tool or this program would not exist. Converter is 
 
 
 #### Upload permission
-  You can upload this tool to other sites but you must credit me as the creator of the file if the mod is has no updates after 6 months since the last update.
+  You can upload this tool to other sites but you must credit me as the creator of the file.
 
 
 #### Modification permission
-  You are allowed to modify my tool and release bug fixes or improve on the features so long as you credit me as the original creator if development is officially discontinued.
+  You are allowed to modify my tool and release bug fixes or improve on the features so long as you credit me as the original creator.
 
 
 #### Conversion permission
@@ -120,7 +120,7 @@ CitizenFX for the conversion tool or this program would not exist. Converter is 
 
 
 #### Asset use permission
-  You are allowed to use the assets in this tool without permission as long as you credit me if the mod is has no updates after 6 months since the last update.
+  You are allowed to use the assets in this tool without permission as long as you credit me.
 
 
 #### Asset use permission in mods/files that are being sold
