@@ -19,6 +19,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 using System;
+using System.Windows.Forms;
 using TextureTool;
 using TextureTool.Utill;
 using TextureTool.Utill.Config;
@@ -31,6 +32,9 @@ namespace RDR2TextureTool
         [STAThread]
         static void Main(string[] args)
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
             FileSystem.Init();
             XMLWriter.Init();
             XMLReader.Init();

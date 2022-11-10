@@ -46,7 +46,6 @@ namespace RDR2TextureTool.Views
         {
             InitializeComponent();
             RedMInstallationFolderTextBox.Text = XMLReader.ConverterDirectory;
-            IsSettingsChanged = false;
         }
 
         private void ApplyClick(object sender, RoutedEventArgs e)
@@ -58,8 +57,8 @@ namespace RDR2TextureTool.Views
                     RedMInstallationFolderTextBox.Text += @"\";
                 }
                 XMLWriter.WriteXMLEntry("false", RedMInstallationFolderTextBox.Text);
+                XMLReader.ConverterDirectory = RedMInstallationFolderTextBox.Text;
                 ApplyButton.IsEnabled = false;
-                IsSettingsChanged = true;
             }
             else
             {
@@ -88,31 +87,28 @@ namespace RDR2TextureTool.Views
 
         private void OKClick(object sender, RoutedEventArgs e)
         {
-            if (IsSettingsChanged == false)
+            if (Directory.Exists(RedMInstallationFolderTextBox.Text))
             {
-                if (Directory.Exists(RedMInstallationFolderTextBox.Text))
+                if (!RedMInstallationFolderTextBox.Text.EndsWith(@"\"))
                 {
-                    XMLWriter.WriteXMLEntry("false", RedMInstallationFolderTextBox.Text);
-                    ApplyButton.IsEnabled = false;
-                    IsSettingsChanged = true;
-                    this.Close();
+                    RedMInstallationFolderTextBox.Text += @"\";
                 }
-                else
-                {
-                    if (RedMInstallationFolderTextBox.Text == "")
-                    {
-                        MessageBox.Show("No path has been selected. Please select a path to continue.", "An Error has Occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        MessageBox.Show(RedMInstallationFolderTextBox.Text + " is not a valid path. Please select a vaild path.", "An Error has Occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
+                XMLWriter.WriteXMLEntry("false", RedMInstallationFolderTextBox.Text);
+                XMLReader.ConverterDirectory = RedMInstallationFolderTextBox.Text;
             }
             else
             {
-                this.Close();
+                if (RedMInstallationFolderTextBox.Text == "")
+                {
+                    MessageBox.Show("No path has been selected. Please select a path to continue.", "An Error has Occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    MessageBox.Show(RedMInstallationFolderTextBox.Text + " is not a valid path. Please select a vaild path.", "An Error has Occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+
+                this.Close();
         }
     }
 }

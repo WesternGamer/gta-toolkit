@@ -31,7 +31,7 @@ SOFTWARE.-->
         <TextBlock x:Name="OriginalProgrammerLabel" HorizontalAlignment="Center" Margin="0,105,0,0" TextWrapping="Wrap" Text="Original Programmer: " VerticalAlignment="Top" FontSize="16" Foreground="White">
             <Hyperlink NavigateUri="https://github.com/Neodymium146" RequestNavigate="Hyperlink_RequestNavigate">Neodymium146</Hyperlink>
         </TextBlock>
-        <TextBlock x:Name="ReprogrammedByLabel" HorizontalAlignment="Center" Margin="0,130,0,0" TextWrapping="Wrap" Text="Reprogrammed by: " VerticalAlignment="Top" FontSize="16" Foreground="White">
+        <TextBlock x:Name="ReprogrammedByLabel" HorizontalAlignment="Center" Margin="0,130,0,0" TextWrapping="Wrap" Text="This version by: " VerticalAlignment="Top" FontSize="16" Foreground="White">
             <Hyperlink NavigateUri="https://github.com/WesternGamer" RequestNavigate="Hyperlink_RequestNavigate">WesternGamer</Hyperlink>
         </TextBlock>
         <TextBlock x:Name="OriginalSourceCodeLabel" HorizontalAlignment="Center" Margin="0,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Foreground="White">
