@@ -95,6 +95,7 @@ namespace RDR2TextureTool.Views
                 }
                 XMLWriter.WriteXMLEntry("false", RedMInstallationFolderTextBox.Text);
                 XMLReader.ConverterDirectory = RedMInstallationFolderTextBox.Text;
+                this.Close();
             }
             else
             {
@@ -107,8 +108,6 @@ namespace RDR2TextureTool.Views
                     MessageBox.Show(RedMInstallationFolderTextBox.Text + " is not a valid path. Please select a vaild path.", "An Error has Occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-
-                this.Close();
         }
     }
 }
