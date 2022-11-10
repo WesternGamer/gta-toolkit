@@ -27,6 +27,8 @@ using System;
 using System.IO;
 using TextureTool.Utill.Config;
 using TextureTool.Views;
+using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace RDR2TextureTool.Views
 {
@@ -43,6 +45,7 @@ namespace RDR2TextureTool.Views
         public SettingsView()
         {
             InitializeComponent();
+            RedMInstallationFolderTextBox.Text = XMLReader.ConverterDirectory;
             IsSettingsChanged = false;
         }
 
@@ -50,6 +53,10 @@ namespace RDR2TextureTool.Views
         {
             if (Directory.Exists(RedMInstallationFolderTextBox.Text))
             {
+                if (!RedMInstallationFolderTextBox.Text.EndsWith(@"\"))
+                {
+                    RedMInstallationFolderTextBox.Text += @"\";
+                }
                 XMLWriter.WriteXMLEntry("false", RedMInstallationFolderTextBox.Text);
                 ApplyButton.IsEnabled = false;
                 IsSettingsChanged = true;

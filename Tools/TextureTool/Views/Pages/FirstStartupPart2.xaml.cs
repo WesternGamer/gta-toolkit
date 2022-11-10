@@ -47,6 +47,7 @@ namespace RDR2TextureTool.Views
             if (Directory.Exists(RedMInstallationFolderTextBox.Text))
             {
                 XMLWriter.WriteXMLEntry("false", RedMInstallationFolderTextBox.Text);
+                XMLReader.ConverterDirectory = RedMInstallationFolderTextBox.Text;
 
                 var w = Application.Current.Windows[0];
                 w.Hide();
@@ -56,9 +57,16 @@ namespace RDR2TextureTool.Views
             }
             else
             {
-                if (RedMInstallationFolderTextBox.Text == "")
+                    if (RedMInstallationFolderTextBox.Text == "")
                 {
-                    MessageBox.Show("No path has been selected. Please select a path to continue.", "An Error has Occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                    XMLWriter.WriteXMLEntry("false", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "RedM"));
+                    XMLReader.ConverterDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "RedM");
+
+                    var w = Application.Current.Windows[0];
+                    w.Hide();
+
+                    MainView mainView = new MainView();
+                    mainView.Show();
                 }
                 else
                 {

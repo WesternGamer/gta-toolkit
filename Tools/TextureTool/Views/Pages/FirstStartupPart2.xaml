@@ -30,11 +30,11 @@ SOFTWARE.-->
 
     <Grid Background="#FF252526">
         <TextBlock HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Setup" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="47" Width="189" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Margin="40,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="26" Width="711" Text="Setup needs to know the loaction of your RedM installation. Please select the folder of the RedM installation below:"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="66" Width="711"><Run Text="If you installed RedM in a custom location, please enter the location below. If you installed RedM in it's default location, just click Finish."/><LineBreak/><Run/><LineBreak/><Run Text="Select the RedM folder that has the RedM executable in it. Do not select the RedM Application Data folder."/></TextBlock>
         <Button Content="Finish" HorizontalAlignment="Left" Margin="676,300,0,0" VerticalAlignment="Top" Width="75" Click="FinishClick" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="596,300,0,0" VerticalAlignment="Top" Width="75" Click="BackClick" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
-        <TextBox x:Name="RedMInstallationFolderTextBox" HorizontalAlignment="Left" Height="23" Margin="179,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="544" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="RedM Installation Folder:" VerticalAlignment="Top" Margin="40,129,0,0" Foreground="White" Width="139" />
-        <Button Name="OpenFileExplorerButton" Content="..." HorizontalAlignment="Left" Margin="728,126,0,0" VerticalAlignment="Top" Width="23" Height="23" Click="OpenFileExplorer" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
+        <TextBox x:Name="RedMInstallationFolderTextBox" HorizontalAlignment="Left" Height="23" Margin="179,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="544" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="RedM Installation Folder:" VerticalAlignment="Top" Margin="40,197,0,0" Foreground="White" Width="139" />
+        <Button Name="OpenFileExplorerButton" Content="..." HorizontalAlignment="Left" Margin="728,193,0,0" VerticalAlignment="Top" Width="23" Height="23" Click="OpenFileExplorer" Foreground="#FFF1F1F1" Background="#FF252526" BorderBrush="#FF3F3F46"/>
     </Grid>
 </Page>

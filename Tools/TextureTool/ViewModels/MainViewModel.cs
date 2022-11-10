@@ -241,14 +241,7 @@ namespace TextureTool.ViewModels
                         System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                         startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                         startInfo.FileName = "cmd.exe";
-                        if (Utill.Config.XMLReader.ConverterDirectory.EndsWith(@"\"))
-                        {
-                            startInfo.Arguments = "/C cd " + quote + Utill.Config.XMLReader.ConverterDirectory + "RedM.app" + quote + " & CitiCon.com formats:convert " + quote + saveDialog.FileName + quote;
-                        }
-                        else
-                        {
-                            startInfo.Arguments = "/C cd " + quote + Utill.Config.XMLReader.ConverterDirectory + @"\RedM.app" + quote + " & CitiCon.com formats:convert " + quote + saveDialog.FileName + quote;
-                        }
+                        startInfo.Arguments = "/C cd " + quote + Utill.Config.XMLReader.ConverterDirectory + @"\RedM.app" + quote + " & CitiCon.com formats:convert " + quote + saveDialog.FileName + quote;
                         startInfo.Verb = "runas";
                         process.StartInfo = startInfo;
                         process.Start();

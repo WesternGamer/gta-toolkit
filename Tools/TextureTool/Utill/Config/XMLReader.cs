@@ -23,7 +23,7 @@ using System.Xml;
 
 namespace TextureTool.Utill.Config
 {
-    internal class XMLReader
+    public class XMLReader
     {
         public static bool IsFirstStartUp;
         public static string ConverterDirectory;
